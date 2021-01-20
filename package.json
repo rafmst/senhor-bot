@@ -1,5 +1,0 @@
-{
-  "scripts": {
-    "start": "go run main.go handler.go"
-  }
-}
