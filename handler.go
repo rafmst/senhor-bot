@@ -21,8 +21,6 @@ func handleCommands(session *discordgo.Session, command *discordgo.MessageCreate
 
 	if strings.HasPrefix(command.Content, prefix) {
 		switch {
-		case strings.HasPrefix(command.Content, prefix+"ping"):
-			commands.HandlePing(session, command)
 		case strings.HasPrefix(command.Content, prefix+"cat"):
 			commands.HandleCat(session, command)
 		}
