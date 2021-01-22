@@ -20,9 +20,11 @@ func handleCommands(session *discordgo.Session, command *discordgo.MessageCreate
 	var prefix = "!"
 
 	if strings.HasPrefix(command.Content, prefix) {
-		// If the message is "ping" reply with "Pong!"
-		if strings.HasPrefix(command.Content, prefix+"ping") {
+		switch {
+		case strings.HasPrefix(command.Content, prefix+"ping"):
 			commands.HandlePing(session, command)
+		case strings.HasPrefix(command.Content, prefix+"cat"):
+			commands.HandleCat(session, command)
 		}
 	}
 }
