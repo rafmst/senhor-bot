@@ -14,7 +14,7 @@ type Fox struct {
 	Link  string `json:"link"`
 }
 
-// HandleFox handles "!cat" command
+// HandleFox handles "!fox" command
 func HandleFox(session *discordgo.Session, command *discordgo.MessageCreate) {
 	resp, err := http.Get("https://randomfox.ca/floof/")
 

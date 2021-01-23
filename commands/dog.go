@@ -14,7 +14,7 @@ type Dog struct {
 	Status  string `json:"status"`
 }
 
-// HandleDog handles "!cat" command
+// HandleDog handles "!dog" command
 func HandleDog(session *discordgo.Session, command *discordgo.MessageCreate) {
 	resp, err := http.Get("https://dog.ceo/api/breeds/image/random")
 

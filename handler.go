@@ -1,6 +1,7 @@
 package main
 
 import (
+	"os"
 	"strings"
 
 	"github.com/bwmarrin/discordgo"
@@ -30,11 +31,13 @@ func handleCommands(session *discordgo.Session, command *discordgo.MessageCreate
 			commands.HandleDog(session, command)
 		case hasPrefix("fox"):
 			commands.HandleFox(session, command)
+		case hasPrefix("weather") || hasPrefix("w"):
+			commands.HandleWeather(session, command)
 		}
 	}
 }
 
 func hasPrefix(keyword string) bool {
-	var prefix = "!"
+	prefix := os.Getenv("PREFIX")
 	return strings.HasPrefix(content, prefix+keyword)
 }

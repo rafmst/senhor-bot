@@ -12,6 +12,7 @@ func HandleHelp(session *discordgo.Session, command *discordgo.MessageCreate) {
 		**!dog**: Mostra uma imagem aleatória de um cão;
 		**!cat**: Mostra uma imagem aleatória de um gato;
 		**!fox**: Mostra uma imagem aleatória de uma raposa;
+		**!weather** (**!w**): Mostra o tempo para o sítio escolhido;
 		`,
 	}
 
