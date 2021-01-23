@@ -13,7 +13,7 @@ func HandleHelp(session *discordgo.Session, command *discordgo.MessageCreate) {
 		**!cat**: Mostra uma imagem aleatória de um gato;
 		**!fox**: Mostra uma imagem aleatória de uma raposa;
 		**!weather** (**!w**): Mostra o tempo para o sítio escolhido;
-		**!covid** (**!w**): Mostra o número de casos e mortes para Portugal e Noruega;
+		**!covid**: Mostra o número de casos e mortes para Portugal e Noruega;
 		`,
 	}
 
