@@ -22,6 +22,8 @@ func handleCommands(session *discordgo.Session, command *discordgo.MessageCreate
 	content = command.Content
 	if hasPrefix("") {
 		switch {
+		case hasPrefix("help"):
+			commands.HandleHelp(session, command)
 		case hasPrefix("cat"):
 			commands.HandleCat(session, command)
 		case hasPrefix("dog"):
