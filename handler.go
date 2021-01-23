@@ -33,6 +33,8 @@ func handleCommands(session *discordgo.Session, command *discordgo.MessageCreate
 			commands.HandleFox(session, command)
 		case hasPrefix("weather") || hasPrefix("w"):
 			commands.HandleWeather(session, command)
+		case hasPrefix("covid"):
+			commands.HandleCovid(session, command)
 		}
 	}
 }
