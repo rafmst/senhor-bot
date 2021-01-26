@@ -15,7 +15,8 @@ func HandleHelp(session *discordgo.Session, command *discordgo.MessageCreate) {
 		**!weather** (**!w**): Mostra o tempo para o sítio escolhido;
 		**!covid**: Mostra o número de casos e mortes para Portugal e Noruega;
 		**!register**: Regista o utilizador na base de dados;
-		**!mycity**: Regista o a tua cidade default. Exemplo: *!mycity Mafamude*;
+		**!mycity**: Regista o a tua cidade default. Exemplo: ` + "`!mycity Mafamude`" + `;
+		**!unregister**: Apagar os seus dados da base de dados;
 		`,
 	}
 
