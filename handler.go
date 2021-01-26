@@ -41,6 +41,8 @@ func handleCommands(session *discordgo.Session, command *discordgo.MessageCreate
 			commands.HandleMyCity(session, command)
 		case hasPrefix("unregister"):
 			commands.HandleUnregister(session, command)
+		case hasPrefix("users"):
+			commands.HandleUsers(session, command)
 		}
 	}
 }

@@ -17,6 +17,7 @@ func HandleHelp(session *discordgo.Session, command *discordgo.MessageCreate) {
 		**!register**: Regista o utilizador na base de dados;
 		**!mycity**: Regista o a tua cidade default. Exemplo: ` + "`!mycity Mafamude`" + `;
 		**!unregister**: Apagar os seus dados da base de dados;
+		**!users**: Lista de utizadores e seus detalhes;
 		`,
 	}
 
