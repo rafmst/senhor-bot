@@ -14,6 +14,8 @@ func HandleHelp(session *discordgo.Session, command *discordgo.MessageCreate) {
 		**!fox**: Mostra uma imagem aleatória de uma raposa;
 		**!weather** (**!w**): Mostra o tempo para o sítio escolhido;
 		**!covid**: Mostra o número de casos e mortes para Portugal e Noruega;
+		**!register**: Regista o utilizador na base de dados;
+		**!mycity**: Regista o a tua cidade default. Exemplo: *!mycity Mafamude*;
 		`,
 	}
 
