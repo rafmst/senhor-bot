@@ -29,6 +29,7 @@ type countryInfo struct {
 func HandleCovid(session *discordgo.Session, command *discordgo.MessageCreate) {
 	showCountryInfo("Portugal", session, command)
 	showCountryInfo("Norway", session, command)
+	showCountryInfo("France", session, command)
 }
 
 func showCountryInfo(country string, session *discordgo.Session, command *discordgo.MessageCreate) {

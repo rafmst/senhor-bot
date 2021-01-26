@@ -11,10 +11,12 @@ import (
 
 // HandleWeather handles "!weather" command
 func HandleWeather(session *discordgo.Session, command *discordgo.MessageCreate) {
-	// Get the location
-	prefix := os.Getenv("PREFIX")
-	location := ""
-	var usedPrefix string
+	var (
+		prefix     = os.Getenv("PREFIX")
+		location   string
+		usedPrefix string
+	)
+
 	if strings.HasPrefix(command.Content, prefix+"weather") {
 		location = strings.TrimPrefix(command.Content, prefix+"weather")
 		usedPrefix = prefix + "weather"
