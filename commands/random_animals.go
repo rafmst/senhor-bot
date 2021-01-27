@@ -92,9 +92,9 @@ func handleDog(body []byte) (string, error) {
 	err := json.Unmarshal(body, &dog)
 	if err != nil {
 		return result, err
-	} else {
-		return dog.Message, nil
 	}
+
+	return dog.Message, nil
 }
 
 func handleCat(body []byte) (string, error) {
@@ -103,9 +103,10 @@ func handleCat(body []byte) (string, error) {
 	err := json.Unmarshal(body, &cat)
 	if err != nil {
 		return result, err
-	} else {
-		return cat.File, nil
 	}
+
+	return cat.File, nil
+
 }
 
 func handleFox(body []byte) (string, error) {
@@ -114,7 +115,7 @@ func handleFox(body []byte) (string, error) {
 	err := json.Unmarshal(body, &fox)
 	if err != nil {
 		return result, err
-	} else {
-		return fox.Image, nil
 	}
+
+	return fox.Image, nil
 }
