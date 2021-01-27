@@ -2,9 +2,7 @@ package commands
 
 import (
 	"context"
-	"fmt"
 	"os"
-	"strconv"
 	"time"
 
 	"github.com/bwmarrin/discordgo"
@@ -38,19 +36,28 @@ func HandleUsers(session *discordgo.Session, command *discordgo.MessageCreate) {
 						session.ChannelMessageSend(command.ChannelID, "Error: Reading user")
 					} else {
 						usersFormatted += `
-│ ` + user.Name + fmt.Sprintf("%"+strconv.Itoa(11-len(user.Name))+"v", "") + `    │ ` + user.City + fmt.Sprintf("%"+strconv.Itoa(26-len(user.City))+"v", "") + ` │`
+│` + calculateSpacesSufix(15, user.Name) + `│` + calculateSpacesSufix(19, user.City) + `│`
 					}
 				}
 
 				session.ChannelMessageSend(command.ChannelID, `
 `+"```"+`
-┌────────────────┬────────────────────────────┐
-│      User      │            City            │
-├────────────────┼────────────────────────────┤ `+usersFormatted+`
-└────────────────┴────────────────────────────┘
+┌────────────────┬────────────────────┐
+│      User      │        City        │
+├────────────────┼────────────────────┤ `+usersFormatted+`
+└────────────────┴────────────────────┘
 `+"```")
 			}
 		}
 		cancel()
 	}
+}
+
+func calculateSpacesSufix(width int, text string) string {
+	var spaces string
+	for missingSpaces := width - len(text); missingSpaces > 0; missingSpaces-- {
+		spaces += " "
+	}
+
+	return " " + text + spaces
 }
