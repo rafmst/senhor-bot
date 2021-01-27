@@ -25,12 +25,8 @@ func handleCommands(session *discordgo.Session, command *discordgo.MessageCreate
 		switch {
 		case hasPrefix("help"):
 			commands.HandleHelp(session, command)
-		case hasPrefix("cat"):
-			commands.HandleCat(session, command)
-		case hasPrefix("dog"):
-			commands.HandleDog(session, command)
-		case hasPrefix("fox"):
-			commands.HandleFox(session, command)
+		case hasPrefix("dog") || hasPrefix("cat") || hasPrefix("fox"):
+			commands.HandleAnimal(session, command)
 		case hasPrefix("weather") || hasPrefix("w"):
 			commands.HandleWeather(session, command)
 		case hasPrefix("covid"):
@@ -48,6 +44,5 @@ func handleCommands(session *discordgo.Session, command *discordgo.MessageCreate
 }
 
 func hasPrefix(keyword string) bool {
-	prefix := os.Getenv("PREFIX")
-	return strings.HasPrefix(content, prefix+keyword)
+	return strings.HasPrefix(content, os.Getenv("PREFIX")+keyword)
 }
