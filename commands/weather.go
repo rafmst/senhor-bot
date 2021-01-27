@@ -85,8 +85,8 @@ func getWeatherInfo(location string, session *discordgo.Session, command *discor
 	var message = discordgo.MessageEmbed{
 		Title: weather.Name,
 		Description: `Temperatura actual: **` + current + `°C** 
-	Máximas de: **` + max + `°C**
-	Mínimas de: **` + min + `°C**`,
+Máximas de: **` + max + `°C**
+Mínimas de: **` + min + `°C**`,
 		Thumbnail: &thumbnail,
 	}
 

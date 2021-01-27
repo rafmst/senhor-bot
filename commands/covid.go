@@ -62,9 +62,9 @@ func showCountryInfo(country string, session *discordgo.Session, command *discor
 				var message = discordgo.MessageEmbed{
 					Title: country.Name,
 					Description: `**` + cases + `** Casos
-					**` + deaths + `** Mortes
+**` + deaths + `** Mortes
 					
-					*Última actualização: ` + updated.Format("2006-01-02 15:04") + `*`,
+*Última actualização: ` + updated.Format("2006-01-02 15:04") + `*`,
 					Thumbnail: &thumbnail,
 				}
 
