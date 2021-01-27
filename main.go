@@ -8,6 +8,7 @@ import (
 
 	"github.com/bwmarrin/discordgo"
 	"github.com/joho/godotenv"
+	"github.com/rafmst/senhor-bot/db"
 )
 
 func main() {
@@ -21,6 +22,9 @@ func main() {
 		fmt.Println("error creating Discord session,", err)
 		return
 	}
+
+	// Start database connection
+	db.StartDB()
 
 	// Register the messageCreate func as a callback for MessageCreate events.
 	bot.AddHandler(handleCommands)

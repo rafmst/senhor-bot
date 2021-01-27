@@ -1,15 +1,12 @@
 package commands
 
 import (
-	"context"
 	"os"
 	"strings"
-	"time"
 
 	"github.com/bwmarrin/discordgo"
+	"github.com/rafmst/senhor-bot/db"
 	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 // HandleMyCity handles "!mycity" command
@@ -23,36 +20,23 @@ func HandleMyCity(session *discordgo.Session, command *discordgo.MessageCreate) 
 	city = strings.TrimPrefix(city, " ")
 
 	if len(city) > 0 {
-		client, err := mongo.NewClient(options.Client().ApplyURI(os.Getenv("DATABASE")))
+		var user User
+		users := db.Instance.Collection("users")
+
+		filter := bson.M{"discord_id": command.Author.ID}
+		err := users.FindOne(db.Ctx(), filter).Decode(&user)
+
 		if err != nil {
-			session.ChannelMessageSend(command.ChannelID, "Error: Couldn't connect to Mongo Database")
+			session.ChannelMessageSend(command.ChannelID, "Utilizador não existente, registe-se com `!register`")
 		} else {
-			ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-			err = client.Connect(ctx)
+			_, err := users.UpdateOne(db.Ctx(), filter, bson.D{
+				{Key: "$set", Value: bson.M{"city": city}},
+			})
 			if err != nil {
-				session.ChannelMessageSend(command.ChannelID, "Error: Couldn't establish connection to Mongo Database")
+				session.ChannelMessageSend(command.ChannelID, "Erro ao alterar a sua cidade default")
 			} else {
-				var user User
-				db := client.Database("senhor-bot")
-				users := db.Collection("users")
-
-				filter := bson.M{"discord_id": command.Author.ID}
-				err = users.FindOne(ctx, filter).Decode(&user)
-
-				if err != nil {
-					session.ChannelMessageSend(command.ChannelID, "Utilizador não existente, registe-se com `!register`")
-				} else {
-					_, err := users.UpdateOne(ctx, filter, bson.D{
-						{Key: "$set", Value: bson.M{"city": city}},
-					})
-					if err != nil {
-						session.ChannelMessageSend(command.ChannelID, "Erro ao alterar a sua cidade default")
-					} else {
-						session.ChannelMessageSend(command.ChannelID, "Cidade alterada com sucesso")
-					}
-				}
+				session.ChannelMessageSend(command.ChannelID, "Cidade alterada com sucesso")
 			}
-			cancel()
 		}
 	} else {
 		session.ChannelMessageSend(command.ChannelID, "Escolha uma localizacão, exemplo: `!mycity Mafamude`")
