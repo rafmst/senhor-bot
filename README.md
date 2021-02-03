@@ -19,3 +19,5 @@
 - **!unregister**: Apagar os seus dados da base de dados;
 - **!users**: Lista de utizadores e seus detalhes;
 - **!mowgli**: Mostra uma imagem aleatória do Mowgli;
+- **!napoleao**: Mostra uma imagem aleatória do Napoleão;
+- **!safira**: Mostra uma imagem aleatória da Safira;

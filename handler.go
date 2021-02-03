@@ -31,8 +31,8 @@ func handleCommands(session *discordgo.Session, command *discordgo.MessageCreate
 			commands.HandleWeather(session, command)
 		case hasPrefix("covid"):
 			commands.HandleCovid(session, command)
-		case hasPrefix("mowgli"):
-			commands.HandleMowgli(session, command)
+		case hasPrefix("mowgli") || hasPrefix("napoleao") || hasPrefix("safira"):
+			commands.HandlePets(session, command)
 		case hasPrefix("register"):
 			commands.HandleRegister(session, command)
 		case hasPrefix("mycity"):
