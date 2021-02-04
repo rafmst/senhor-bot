@@ -43,8 +43,13 @@ func HandlePets(session *discordgo.Session, command *discordgo.MessageCreate) {
 		"safira": {
 			"https://user-images.githubusercontent.com/924985/106796542-c9e1af00-665b-11eb-9535-ca74101d088d.png",
 			"https://user-images.githubusercontent.com/924985/106797569-124d9c80-665d-11eb-83c9-1c91a40113c3.png",
-			"https://user-images.githubusercontent.com/924985/106796542-c9e1af00-665b-11eb-9535-ca74101d088d.png",
-			"https://user-images.githubusercontent.com/924985/106797569-124d9c80-665d-11eb-83c9-1c91a40113c3.png",
+			"https://user-images.githubusercontent.com/924985/106925715-a2005300-6710-11eb-8b7d-696590454c16.png",
+			"https://user-images.githubusercontent.com/924985/106925777-b2b0c900-6710-11eb-9100-b901203ebf0b.png",
+			"https://user-images.githubusercontent.com/924985/106925890-cc521080-6710-11eb-951c-47075be616f8.png",
+			"https://user-images.githubusercontent.com/924985/106925930-d6740f00-6710-11eb-89ed-313380bb9938.png",
+			"https://user-images.githubusercontent.com/924985/106925962-e25fd100-6710-11eb-8f1f-f3f7f77d5aae.png",
+			"https://user-images.githubusercontent.com/924985/106926003-ee4b9300-6710-11eb-8333-ec9e03e6a2bf.png",
+			"https://user-images.githubusercontent.com/924985/106926072-fe637280-6710-11eb-9410-f9b54a2dde46.png",
 		},
 	}
 
